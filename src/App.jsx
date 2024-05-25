@@ -1,19 +1,25 @@
 import { useState } from 'react'
-import Table from './components/Table'
 import './App.css'
+import Table from './components/Table'
+import Form from './components/Form'
 
 function App() {
-  const [lista, setLista] = useState([
-    {nome: 'Stepherson',sobrenome: 'Borges  dos Santos', idade: 36}
-  ])
+  const [lista, setLista] = useState([])
+
+  function add (novoItem) {
+    setLista([...lista, novoItem])
+  }
 
   return (
-    <>
-      {lista.length > 0 ? 
-      <Table lista={lista}/> :
-      <label>Nenhum item cadastrado!</label>}
-    </>
-  )
+    <div className='card'>
+    <Form add={add}/>
+      {lista.length > 0 ?
+        < Table lista={lista} />
+        :
+        <label>Nenhum item cadastrado!</label>
+      }
+    </div>
+)
 }
 
 export default App

@@ -1,40 +1,32 @@
-function Table({lista}) {
+function Table({ lista }) {
 
     return (
-<>
-    <table>
-            <thead>
-                <th>NOME</th>
-                <th>SOBRENOME</th>
-                <th>IDADE</th>
+        <>
+            <table>
+                <thead>
+                    <tr>
+                    <th>NOME</th>
+                    <th>SOBRENOME</th>
+                    <th>IDADE</th>
+                    </tr>
                 </thead>
-            <tbody>
-                {
-                    lista.map((item) =>{
-                        return (
-                            <tr>
-                    <td>item.nome</td>
-                    <td>item.sobrenome</td>
-                    <td>item.idade</td>
-                </tr>
-                        )
-                    })
-                }
-                <tr>
-                    <td>Stepherson</td>
-                    <td>Borges</td>
-                    <td>37</td>
-                </tr>
-                <tr>
-                    <td>Michelly</td>
-                    <td>Araujo</td>
-                    <td>37</td>
-                </tr>
-            </tbody>
-        </table>
+                <tbody>
+                    {
+                        lista.map((item,index) => {
+                            return (
+                                <tr key={index.toString()}>
+                                    <td>{item.nome}</td>
+                                    <td>{item.sobrenome}</td>
+                                    <td>{item.idade}</td>
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
+            </table>
 
         </>
-)
+    )
 }
 
 
